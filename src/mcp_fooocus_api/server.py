@@ -19,7 +19,7 @@ load_dotenv()
 FOOOCUS_API_URL = os.getenv("FOOOCUS_API_URL", "http://127.0.0.1:8888/v1/generation/text-to-image")
 
 # Performance options
-PERFORMANCE_OPTIONS = ["Speed", "Quality", "Extreme Speed"]
+PERFORMANCE_OPTIONS = ["Hyper-SD","Speed", "Quality", "Extreme Speed"]
 
 # Available styles
 AVAILABLE_STYLES = [
@@ -434,7 +434,7 @@ def select_styles_for_prompt(prompt: str) -> List[str]:
 @mcp.tool()
 async def generate_image(
     prompt: str,
-    performance: str = "Speed",
+    performance: str = "Hyper-SD",
     custom_styles: Optional[str] = None,
     aspect_ratio: str = "1024*1024"
 ) -> dict[str, Any]:
@@ -452,7 +452,7 @@ async def generate_image(
     """
     # Validate performance setting
     if performance not in PERFORMANCE_OPTIONS:
-        performance = "Speed"
+        performance = "Hyper-SD"
     
     # Select styles
     if custom_styles:
