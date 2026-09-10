@@ -10,7 +10,7 @@ import asyncio
 from typing import Any, List, Optional
 from dotenv import load_dotenv
 import httpx
-from mcp.server.fastmcp import FastMCP
+from mcp.server.mcpserver import MCPServer
 
 # Load environment variables
 load_dotenv()
@@ -305,7 +305,7 @@ AVAILABLE_STYLES = [
 ]
 
 # Create the MCP server
-mcp = FastMCP("Fooocus API")
+mcp = MCPServer("Fooocus")
 
 
 def select_styles_for_prompt(prompt: str) -> List[str]:
